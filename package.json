@@ -16,14 +16,16 @@
   "licenses": "MIT",
   "scripts": {
     "start": "budo index.js --dir ./ --dir dist --css css/index.css",
-    "build": "node build.js"
+    "build": "node build.js",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "engines": {
     "node": ">= 0.10.0"
   },
   "dependencies": {
     "base-router": "^1.1.0",
-    "browserify": "^10.2.4",
+    "browserify": "^12.0.0",
     "csjs": "^1.0.1",
     "global": "^4.3.0",
     "highlight.js": "^9.2.0",
@@ -31,7 +33,8 @@
     "moment": "^2.12.0",
     "nets": "^3.2.0",
     "yfm": "^0.2.0",
-    "yo-yo": "^1.1.1"
+    "yo-yo": "^1.1.1",
+    "snyk": "^1.82.1"
   },
   "devDependencies": {
     "budo": "^8.1.0",
@@ -43,10 +46,13 @@
   },
   "keywords": [],
   "browserify": {
-    "transform": ["yo-yoify"]
+    "transform": [
+      "yo-yoify"
+    ]
   },
   "browser": {
     "fs": false,
     "glob": false
-  }
+  },
+  "snyk": true
 }
